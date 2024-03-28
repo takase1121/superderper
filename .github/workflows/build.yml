@@ -1,0 +1,26 @@
+name: Building
+
+on:
+  workflow_dispatch: null
+  push: null
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - run: |
+          go build -buildmode=pie
+          mkdir -p bin lib/systemd/system etc/default
+          cp superderper bin
+          cp tailscaled-derper@.service superderper.service lib/systemd/system
+          cp superderper.conf etc/default/superderper
+          cp tailscaled-derper.conf etc/default/tailscaled-derper
+          tar -czf superderper.tar.gz bin lib etc
+      
+      - uses: actions/upload-artifact@v4
+        with:
+          name: superderper
+          path: superderper.tar.gz
+          compression-level: 0
