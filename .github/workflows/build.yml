@@ -24,3 +24,17 @@ jobs:
           name: superderper
           path: superderper.tar.gz
           compression-level: 0
+
+  release:
+    if: startsWith(github.event.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: superderper.tar.gz
+          generateReleaseNotes: true
