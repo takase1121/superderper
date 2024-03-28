@@ -4,6 +4,8 @@ go 1.22.1
 
 require tailscale.com v1.62.1
 
+require github.com/jellydator/ttlcache/v3 v3.2.0
+
 require (
 	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/akutz/memconn v0.1.0 // indirect
@@ -12,7 +14,6 @@ require (
 	github.com/fxamacker/cbor/v2 v2.5.0 // indirect
 	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/hdevalence/ed25519consensus v0.2.0 // indirect
-	github.com/jellydator/ttlcache/v3 v3.2.0 // indirect
 	github.com/josharian/native v1.1.1-0.20230202152459-5c7d0dd6ab86 // indirect
 	github.com/jsimonetti/rtnetlink v1.4.0 // indirect
 	github.com/mdlayher/netlink v1.7.2 // indirect
