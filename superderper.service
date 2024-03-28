@@ -6,7 +6,7 @@ After=network-online.target
 [Service]
 Restart=on-failure
 EnvironmentFile=-/etc/default/superderper
-ExecStart=/usr/bin/superderper -a $ADDR
+ExecStart=/usr/bin/superderper -a $ADDR -e $EXPIRY
 LimitNOFILE=65535
 NoNewPrivileges=true
 ProtectHome=true
